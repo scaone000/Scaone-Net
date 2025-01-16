@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struk Pesanan</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    .container {
+      width: 70%;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+      color: #007bff;
+      text-transform: uppercase;
+    }
+
+    .order-summary {
+      margin-bottom: 30px;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+
+    .order-summary h3 {
+      color: #333;
+      font-size: 24px;
+    }
+
+    .order-summary p {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button, .back-to-menu {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      cursor: pointer;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin: 5px;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover, .back-to-menu:hover {
+      background: linear-gradient(90deg, #2575fc, #6a11cb);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    button:active, .back-to-menu:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-icons {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .social-icons a {
+      color: #007bff;
+      margin: 0 10px;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #0056b3;
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Style for print */
+    @media print {
+      button, .back-to-menu, .social-icons, .footer-text {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Struk Pesanan</h1>
+    </div>
+    <div class="order-summary">
+      <h3 id="menu-name"></h3>
+      <p id="menu-price"></p>
+      <p id="menu-portion"></p>
+      <strong>INFO:</strong>
+      <p>Tunggu Saja Barang nya Jangan Tunggu Orang nya Karena Menunggu Seseorang Itu Sakit!</p>
+    </div>
+    <div class="footer">
+      <button onclick="window.print()">Cetak Struk</button>
+      <a href="index.html" class="back-to-menu">Kembali ke Bio</a>
+      <a href="menu.html" class="back-to-menu">Kembali ke Menu</a>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="footer-text">Scaone Boys 2025</div>
+  </div>
+
+  <script>
+    // Ambil parameter dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const menu = urlParams.get('menu');
+    const harga = urlParams.get('harga');
+    const porsi = urlParams.get('porsi'); // Ambil parameter 'porsi'
+
+    // Tampilkan data pesanan di halaman
+    if (menu && harga && porsi) {
+      document.getElementById('menu-name').textContent = 'Pesanan: ' + menu;
+      document.getElementById('menu-price').textContent = 'Harga: Rp' + harga;
+      document.getElementById('menu-portion').textContent = 'Porsi: ' + porsi + ' pcs';
+    }
+  </script>
+</body>
+</html>
